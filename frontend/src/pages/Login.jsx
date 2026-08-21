@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react";
 import API from "../api";
 
 function Login() {
@@ -10,6 +11,7 @@ function Login() {
     password: "",
   });
 
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -27,28 +29,16 @@ function Login() {
       setLoading(true);
       setError("");
 
-      const response = await API.post(
-        "/auth/login",
-        form
-      );
+      const response = await API.post("/auth/login", form);
 
-      localStorage.setItem(
-        "token",
-        response.data.token
-      );
-
-      localStorage.setItem(
-        "user",
-        JSON.stringify(response.data.user)
-      );
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
 
       navigate("/dashboard");
-
       window.location.reload();
     } catch (error) {
       setError(
-        error.response?.data?.message ||
-          "Login failed"
+        error.response?.data?.message || "Login failed"
       );
     } finally {
       setLoading(false);
@@ -78,16 +68,31 @@ function Login() {
             required
           />
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={form.password}
-            onChange={handleChange}
-            required
-          />
+          <div className="password-wrapper">
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Password"
+              value={form.password}
+              onChange={handleChange}
+              required
+            />
 
-          <button disabled={loading}>
+            <button
+              type="button"
+              className="password-toggle"
+              onClick={() => setShowPassword(!showPassword)}
+              aria-label={showPassword ? "Hide password" : "Show password"}
+            >
+              {showPassword ? (
+                <EyeOff size={19} strokeWidth={2} />
+              ) : (
+                <Eye size={19} strokeWidth={2} />
+              )}
+            </button>
+          </div>
+
+          <button type="submit" disabled={loading}>
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
