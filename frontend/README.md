@@ -1,32 +1,59 @@
-# React + TypeScript + Vite
+# 🤖 AI Smart Task Assistant
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+AI Smart Task Assistant is a full-stack web application that helps users create, manage, and organize tasks using natural language and AI.
 
-Currently, two official plugins are available:
+The application combines **React.js, Node.js, Express.js, MongoDB, JWT Authentication, and Google Gemini AI** to provide a simple and intelligent task-management experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+### 🔐 Login Page
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![Login Page](docs/D:\RAVSAHEB_PROJECTS\int\demo\ai-smart-task-assistant\frontend\Screenshot 2026-08-21 174210.png)
 
-## Expanding the Oxlint configuration
+The login page allows registered users to securely access their account using email and password.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+---
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+### 🏠 Home / Dashboard
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+![Dashboard](docs/D:\RAVSAHEB_PROJECTS\int\demo\ai-smart-task-assistant\frontend\img2.png)
+![Dashboard](docs/D:\RAVSAHEB_PROJECTS\int\demo\ai-smart-task-assistant\frontend\img3.png)
+
+The dashboard provides users with a centralized place to manage their tasks and interact with the AI-powered task assistant.
+
+---
+
+## ✨ Features
+
+- 🔐 User Registration & Login
+- 🔑 JWT-based Authentication
+- 🔒 Password Hashing using bcrypt
+- 🤖 AI-powered Task Assistant
+- 📝 Create and Manage Tasks
+- ✅ Task Completion Management
+- 🗑️ Delete Tasks
+- 👤 User-specific Task Management
+- 💾 MongoDB Database Integration
+- 🌐 REST API
+- 📱 Responsive User Interface
+- ⚡ Fast React + Vite Frontend
+- ☁️ Deployment-ready Full-Stack Architecture
+
+---
+
+## 🧠 AI Smart Task Assistant
+
+The application allows users to interact with an AI assistant using natural language.
+
+For example:
+
+> "I have a client meeting tomorrow at 10 AM and need to prepare the presentation today."
+
+The AI can understand the request and help convert it into structured task information.
+
+### Example AI Prompt
+
+```text
+I have a meeting with my project team tomorrow at 11 AM.
+I need to prepare the presentation today and send the project
+report before the meeting.![alt text](image.png)
